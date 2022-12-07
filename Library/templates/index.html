@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {% for book in books %}
+    <li>
+        <h1>
+            {{ book.name }}
+        </h1>
+        <h3>Authors:</h3>
+        <ul>
+            {% for author in book.authors %}
+            <li><h3>{{ author }}</h3></li>
+            {% endfor %}
+        </ul>
+        <p>
+            Category: {{ book.category }}
+        </p>
+        <p>
+            Reissue: {{ book.reissue }} Year: {{ book.pub_date }}
+        </p>
+        <p>
+            {{ book.created_at }}
+        </p>
+        <p>
+            Tags:
+        </p>
+        <ul>
+            {% for tag in book.tags %}
+            <li>{{ tag }}</li>
+            {% endfor %}
+        </ul>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
