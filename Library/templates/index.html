@@ -1,41 +1,77 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>Title</title>
-</head>
-<body>
-<ul>
-    {% for book in books %}
-    <li>
-        <h1>
-            {{ book.name }}
-        </h1>
-        <h3>Authors:</h3>
-        <ul>
-            {% for author in book.authors %}
-            <li><h3>{{ author }}</h3></li>
-            {% endfor %}
-        </ul>
-        <p>
-            Category: {{ book.category }}
-        </p>
-        <p>
-            Reissue: {{ book.reissue }} Year: {{ book.pub_date }}
-        </p>
-        <p>
-            {{ book.created_at }}
-        </p>
-        <p>
-            Tags:
-        </p>
-        <ul>
-            {% for tag in book.tags %}
-            <li>{{ tag }}</li>
-            {% endfor %}
-        </ul>
-    </li>
-    {% endfor %}
-</ul>
-</body>
+<html>
+    <head>
+		<meta lang="en">
+    </head>
+
+	<body>
+		<header>
+			<form class="search">
+				<input type="text" placeholder="Type here...">
+				<button type="submit">Search</button>
+			</form>
+		</header>
+		<ul class="block-of-products">
+			{% for elem in books %}
+				<li class="cards">
+					<div class="card">
+						<div class="card-body">
+							<h3 class="card-title">{{elem.name}}</h3>
+							<p class="card-text"><small class="text-muted">{{elem.pub_date}}</small></p>
+							<p class="card-text">{{elem.reissue}}</p>
+						</div>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+		<style>
+			.block-of-products {
+				margin-left: 4%;
+			}
+
+			.card-title {
+				width: 100%;
+				text-align: center;
+				margin-left: 10px;
+			}
+
+			.cards {
+				list-style-type: none;
+			}
+
+			.card {
+				background: rgba(248, 237, 227, .7);
+				border-radius: 3px;
+				width: 95%;
+				border: 2px;
+			}
+
+			.card:hover {
+				background: rgba(248, 237, 227, .9);
+			}
+
+			.card-body {
+				text-align: center;
+			}
+
+			.card-img {
+				margin-top: 10px;
+				border-radius: 3px;
+			}
+
+			.card-text {
+				padding-bottom: 10px;
+			}
+
+			header {
+				background: rgba(248, 237, 227, .7);
+				border-radius: 5px;
+				width: 90%;
+				padding: 20px;
+				display: table;
+				margin-left: 4%;
+			}
+		</style>
+	</body>
 </html>
