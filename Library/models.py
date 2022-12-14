@@ -6,7 +6,7 @@ from django.db.models import TextField, CharField, ForeignKey, IntegerField, Fil
 
 class Categories(models.Model):
     category = CharField(max_length=20)
-    parent_id = ForeignKey('self', on_delete=models.PROTECT, blank=True, default=None, null=True)
+    parent = ForeignKey('self', on_delete=models.PROTECT, blank=True, default=None, null=True)
 
     def __str__(self):
         return self.category
@@ -18,7 +18,7 @@ class Categories(models.Model):
 
 class Additions(models.Model):
     file = FileField()
-    book_id = ForeignKey('Books', on_delete=models.CASCADE)
+    book = ForeignKey('Books', on_delete=models.CASCADE)
 
     class Meta:
         verbose_name_plural = 'Дополнения'

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 
 from .models import Books
+from .forms import SearchForm
 
 
 def index(request):
@@ -31,4 +32,8 @@ def index(request):
             'created_at': str(i.created_at),
             'tags': tags
         })
-    return render(request, 'index.html', {'books': books})
+    return render(request, 'index.html', {'books': books, 'form': SearchForm})
+
+
+def search(request):
+    pass
