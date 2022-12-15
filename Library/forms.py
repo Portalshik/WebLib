@@ -7,5 +7,5 @@ class SearchForm(forms.Form):
         ('name', 'Name of book'),
         ('author', 'Author')
     )
-    search = forms.CharField(max_length=30)
+    search = forms.CharField(max_length=200)
     filter = forms.ChoiceField(choices=choiceList)
