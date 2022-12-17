@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form class="add" method="post">
+        <p>Book name: {{ form.name_of_book }}</p>
+        <p>Tags: {{ form.tags }}</p>
+        <small><p>Type tags and divide it with ','</p></small>
+        <p>{{ form.file }}</p>
+        <button type="submit">Add</button>
+        {% csrf_token %}
+    </form>
+</body>
+</html>
